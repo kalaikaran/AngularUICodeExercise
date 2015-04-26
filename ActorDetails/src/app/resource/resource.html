@@ -1,0 +1,25 @@
+<div>
+    <div class="input-group spad">
+        <span class="input-group-addon" id="basic-addon1">Search</span>
+        <input type="text" ng-model="query" class="form-control" placeholder="search Actors" aria-describedby="basic-addon1">
+    </div>
+    <div class=" panel panel-success ">
+        <div class="panel-heading ">
+            <h3 class="panel-title " id="panel-title ">List Of Actors</h3>
+        </div>
+        <div class="panel-body ">
+            <div class="list-group actImg">
+                <a ng-repeat="actor in vm.actors | filter: query" href="# " class="list-group-item ">
+                    <!--                    <div  class="cntdiv">-->
+                    <img ng-src="{{actor.url}} " alt="Photo of {{actor.name}} ">
+                    <!--                    </div>-->
+                    <div class="cntdiv">
+                        <h4 class="list-group-item-heading ">{{actor.firstName + " " + actor.lastName}}</h4>
+                        <p class="list-group-item-text ">{{actor.description}}</p>
+                    </div>
+                    <div></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
