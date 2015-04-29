@@ -3,7 +3,7 @@
 
     angular.module('actorsDetails').controller('LayoutCtrl', LayoutCtrl);
 
-    ShellCtrl.$inject = ['$rootScope'];
+    LayoutCtrl.$inject = ['$rootScope'];
 
     function LayoutCtrl($rootScope) {
         /* jshint validthis:true */

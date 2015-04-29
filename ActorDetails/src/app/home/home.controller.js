@@ -9,6 +9,7 @@
         var vm = this;
 
         vm.activate = activate;
+        vm.test = true;
         vm.navigate = navigate;
 
         activate();
@@ -16,6 +17,7 @@
         ////////////////
 
         function activate() {
+            //return true;
         }
         
         function navigate() {

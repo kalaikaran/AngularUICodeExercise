@@ -28,9 +28,8 @@
                 description: vm.description
             };
 
-            actorApi.addActor(actor).then(function (data) {
-                //vm.newLeagueName = '';
-                //vm.actor.push(data);
+            actorApi.addActorResource(actor).save(function () {
+                vm.dataSaved = true;
                 $state.go('resource');
             });
         }

@@ -1,11 +1,14 @@
 <h2 class="page-title"> Add New Actor</h2>
 <div class="pad">
+    <div ng-show="vm.dataSaved" class="alert alert-success" role="alert">
+        <strong>Well done!</strong> You successfully the Actor Details.
+    </div>
     <form class="" name="actor" role="search">
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">ID</span>
             <input type="text" name="id" class="form-control" ng-model="vm.id" ng-pattern="/^[0-9]*$/" placeholder="Enter an unique id" aria-describedby="sizing-addon1" required>
         </div>
-        <div class="alert alert-danger" ng-show="actor.id.$error.pattern"> 
+        <div class="alert alert-danger" ng-show="actor.id.$error.pattern">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>Id Field can only have numbers</div>
         <br>
@@ -13,7 +16,7 @@
             <span class="input-group-addon" id="sizing-addon1">NAME</span>
             <input type="text" name="name" class="form-control" ng-model="vm.name" ng-pattern="/^[a-zA-Z]*$/" placeholder="Enter an Actor's name" aria-describedby="sizing-addon1" required>
         </div>
-        <div class="alert alert-danger" ng-show="actor.name.$error.pattern"> 
+        <div class="alert alert-danger" ng-show="actor.name.$error.pattern">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>Name field cannot have symbols and spaces</div>
         <br>
@@ -21,7 +24,7 @@
             <span class="input-group-addon" id="sizing-addon1">FIRST NAME</span>
             <input type="text" name="firstname" class="form-control" ng-model="vm.firstname" ng-pattern="/^[a-zA-Z]*$/" placeholder="Enter Actor's Firstname" aria-describedby="sizing-addon1" required>
         </div>
-        <div class="alert alert-danger" ng-show="actor.firstname.$error.pattern"> 
+        <div class="alert alert-danger" ng-show="actor.firstname.$error.pattern">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span>Name field cannot have symbols and spaces</div>
         <br>
@@ -35,7 +38,7 @@
         <br>
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">Image URL</span>
-            <input type="text" name="img" class="form-control" ng-model="vm.img"  placeholder="Provide URL for the actors Image" aria-describedby="sizing-addon1" required>
+            <input type="text" name="img" class="form-control" ng-model="vm.img" placeholder="Provide URL for the actors Image" aria-describedby="sizing-addon1" required>
         </div>
         <div class="alert alert-danger" ng-show="actor.img.$error.pattern">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -43,7 +46,7 @@
         <br>
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1">DESCRIPTION</span>
-            <input type="text" name="description" ng-model="vm.description"class="form-control" placeholder="Enter description" aria-describedby="sizing-addon1">
+            <input type="text" name="description" ng-model="vm.description" class="form-control" placeholder="Enter description" aria-describedby="sizing-addon1">
         </div>
         <br>
 

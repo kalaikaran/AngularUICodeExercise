@@ -3,6 +3,7 @@
     var app = angular.module('actorsDetails', [
         // Angular modules
         //'ngRoute',
+        'ngResource',
 
         // 3rd Party Modules
         'ui.bootstrap',
@@ -27,7 +28,7 @@
                 controllerAs: 'vm',
                 resolve: {
                     initialData: ['actorApi', function (actorApi) {
-                        return actorApi.getActors();
+                        return actorApi.getActorsResource();
 
                     }]
                 }
@@ -40,7 +41,7 @@
                 controllerAs: 'vm',
                 resolve: {
                     initialData: ['actorApi', function (actorApi) {
-                        return actorApi.getActors();
+                        return actorApi.getActorsResource();
 
                     }]
                 }
