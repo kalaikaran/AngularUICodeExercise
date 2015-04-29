@@ -14,8 +14,8 @@
 
     function configRoutes($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('admin', {
-                url: '/admin',
+            .state('main', {
+                url: '/main',
                 templateUrl: 'app/home/home.html',
                 controller: 'HomeCtrl',
                 controllerAs: 'vm'
@@ -47,7 +47,7 @@
             });
 
 
-        $urlRouterProvider.otherwise('/admin');
+        $urlRouterProvider.otherwise('/main');
     }
 
     app.run(['$state', function ($state) {
