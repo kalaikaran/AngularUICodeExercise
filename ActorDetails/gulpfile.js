@@ -4,6 +4,9 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var plugins = require('gulp-load-plugins')();
 var karma = require('gulp-karma');
+var jasmine = require('gulp-jasmine');
+
+
 
 var paths = {
     appScripts: 'src/app/**/*.js'
@@ -13,7 +16,7 @@ var concatPaths = {
 };
 
 var testFiles = [
-  'test/specs/*.js'
+    'test/specs/*.js'
 ];
 
 gulp.task('scripts', function () {
@@ -23,17 +26,17 @@ gulp.task('scripts', function () {
         .pipe(plugins.size());
 });
 
-gulp.task('test', function() {
-  // Be sure to return the stream 
-  return gulp.src(testFiles)
-    .pipe(karma({
-      configFile: 'karma.conf.js',
-      action: 'watch'
-    }))
-    .on('error', function(err) {
-      // Make sure failed tests cause gulp to exit non-zero 
-      throw err;
-    });
+gulp.task('test', function () {
+    // Be sure to return the stream
+    return gulp.src(testFiles)
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'watch'
+        }))
+        .on('error', function (err) {
+            // Make sure failed tests cause gulp to exit non-zero
+            throw err;
+        });
 });
 //gulp.task('test', function (done) {
 //    karma.start({
@@ -41,6 +44,11 @@ gulp.task('test', function() {
 //        singleRun: true
 //    }, done);
 //});
+
+gulp.task('jasmine', function () {
+    return gulp.src('src/test/specs/homeSpec.js')
+        .pipe(jasmine());
+});
 
 gulp.task('build', function () {
     return gulp.src(['src/app/**/*.js'])
@@ -54,8 +62,8 @@ gulp.task('injectjs', function () {
     var sources = gulp.src([paths.appScripts]);
 
     return target.pipe(plugins.inject(sources, {
-            relative: true
-        }))
+        relative: true
+    }))
         .pipe(gulp.dest('./src'));
 
 });
@@ -65,8 +73,8 @@ gulp.task('injectconcatjs', function () {
     var sources = gulp.src([concatPaths.appScripts]);
 
     return target.pipe(plugins.inject(sources, {
-            relative: true
-        }))
+        relative: true
+    }))
         .pipe(gulp.dest('./src'));
 
 });
@@ -85,7 +93,6 @@ gulp.task('watch', ['serve'], function () {
 
     gulp.watch(paths.appScripts, ['scripts']);
 });
-
 
 
 gulp.task('serve', ['connect'], function () {

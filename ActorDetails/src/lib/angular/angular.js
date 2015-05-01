@@ -24137,7 +24137,7 @@ var ngNonBindableDirective = ngDirective({ terminal: true, priority: 1000 });
     </example>
  */
 var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interpolate) {
-  var BRACE = /{}/g,
+  var BRACE = /\{\}/g,
       IS_WHEN = /^when(Minus)?(.+)$/;
 
   return {

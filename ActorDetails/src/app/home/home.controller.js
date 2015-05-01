@@ -1,10 +1,10 @@
 (function () {
     'use strict';
 
-    angular.module('actorsDetails').controller('HomeCtrl', HomeCtrl);
+    angular.module('actorsDetails').controller('HomeCtrl', [HomeCtrl]);
 
     /* @ngInject */
-    function HomeCtrl($state) {
+    function HomeCtrl() {
         /* jshint validthis: true */
         var vm = this;
 
@@ -21,7 +21,7 @@
         }
         
         function navigate() {
-            $state.go('form');
+            //$state.go('form');
         }
 
 

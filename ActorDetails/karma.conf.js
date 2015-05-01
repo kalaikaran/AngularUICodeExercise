@@ -15,11 +15,23 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/lib/angular/angular.min.js',
+      'src/lib/angular/angular.js',
       'src/lib/angular-mocks/angular-mocks.js',
-      'src/lib/angular-resource/angular-resource.min.js',
+      'src/lib/angular-resource/angular-resource.js',
+      'src/lib/angular-ui-router/release/angular-ui-router.js',
+      'src/lib/angular-bootstrap/ui-bootstrap.js',
+
+      //'src/lib/jasmine/lib/jasmine-core/*.js',
+      //'src/test/jasmine-2.0.0/console.js',
+      //'src/test/jasmine-2.0.0/jasmine-html.js',
+      //'src/test/jasmine-2.0.0/boot.js',
+
       'src/app/**/*.js',
-      'src/test/specs/*.js',
+      'src/app/**/*.js',
+      //'src/app/home/home.controller.js',
+      'src/test/specs/homeSpec.js'
+      //'src/app/**/*.js',
+      //'src/test/specs/*.js'
       //'**/*.tests.js'
     ],
 
@@ -27,7 +39,13 @@ module.exports = function(config) {
     // list of files to exclude
     exclude: [
     ],
-
+    /*plugins: [
+      'karma-jasmine'*//*,
+      'karma-junit-reporter',
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-phantomjs-launcher'*//*
+    ],*/
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
@@ -65,7 +83,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Chrome','Firefox'],
 
 
     // Continuous Integration mode
