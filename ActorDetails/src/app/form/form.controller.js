@@ -28,8 +28,10 @@
                 description: vm.description
             };
 
-            actorApi.addActorResource(actor).save(function () {
+            actorApi.addActorResource(actor).save(actor, function (data, postHeader) {
                 vm.dataSaved = true;
+                vm.data = data;
+                vm.postHeader = postHeader;
                 $state.go('resource');
             });
         }

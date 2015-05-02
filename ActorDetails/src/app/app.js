@@ -6,7 +6,7 @@
         'ngResource',
 
         // 3rd Party Modules
-        'ui.bootstrap',
+        //'ui.bootstrap',
         'ui.router'
 
     ]);
@@ -14,6 +14,8 @@
     app.config(['$stateProvider', '$urlRouterProvider', configRoutes]);
 
     function configRoutes($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/main');
+
         $stateProvider
             .state('main', {
                 url: '/main',
@@ -48,7 +50,7 @@
             });
 
 
-        $urlRouterProvider.otherwise('/main');
+
     }
 
     app.run(['$state', function ($state) {

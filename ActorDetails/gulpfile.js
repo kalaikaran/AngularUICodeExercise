@@ -7,7 +7,6 @@ var karma = require('gulp-karma');
 var jasmine = require('gulp-jasmine');
 
 
-
 var paths = {
     appScripts: 'src/app/**/*.js'
 };
@@ -71,20 +70,19 @@ gulp.task('injectjs', function () {
 gulp.task('injectconcatjs', function () {
     var target = gulp.src('./src/index.html');
     var sources = gulp.src([concatPaths.appScripts]);
-
     return target.pipe(plugins.inject(sources, {
         relative: true
     }))
-        .pipe(gulp.dest('./src'));
+    .pipe(gulp.dest('./src'));
 
 });
 
 gulp.task('watch', ['serve'], function () {
     var server = plugins.livereload();
-
     gulp.watch([
         'src/**/*.html',
         'src/app/**/*.js',
+        'src/app/**/*.html',
         'src/styles/*.css'
     ]).on('change', function (file) {
         console.log('File changed: ' + file.path);

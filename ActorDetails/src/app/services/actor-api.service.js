@@ -7,8 +7,8 @@
 
     function actorApi($http, appSpinner, $resource) {
         var service = {
-//            getActors: getActors,
-//            addActor: addActor,
+            getActors: getActors,
+            addActor: addActor,
             getActorsResource: getActorsResource,
             addActorResource: addActorResource
         };
@@ -22,12 +22,12 @@
 
         return service;
 
-//        function getActors() {
-//            return httpGet('/author');
-//        }
-//
-//        function addActor(league) {
-//            return httpPost('/author', league);
+        function getActors() {
+            return httpGet('/author');
+        }
+
+        function addActor(league) {
+            return httpPost('/author', league);
         }
 
         function getActorsResource() {
@@ -38,28 +38,29 @@
             return postResource('/author', league);
         }
 
-//        function httpExecute(requestUrl, method, data) {
-//            appSpinner.showSpinner();
-//            return $http({
-//                url: baseUrl + requestUrl,
-//                method: method,
-//                data: data,
-//                headers: requestConfig.headers
-//            }).then(function (response) {
-//
-//                appSpinner.hideSpinner();
-//                console.log('**response from EXECUTE', response);
-//                return response.data;
-//            });
-//        }
+        function httpExecute(requestUrl, method, data) {
+            appSpinner.showSpinner();
+            return $http({
+                url: baseUrl + requestUrl,
+                method: method,
+                data: data,
+                headers: requestConfig.headers
+            }).then(function (response) {
+
+                appSpinner.hideSpinner();
+                console.log('**response from EXECUTE', response);
+                return response.data;
+            });
+        }
 
         function executeResource(requestUrl, method, data) {
-            var urlResource = $resource(requestUrl, {}, {
+            var urlResource = $resource(baseUrl + requestUrl, {}, {
                 query: {
                     method: 'GET',
-                    headers: requestConfig.headers
+                    headers: requestConfig.headers,
+                    isArray: true
                 },
-                save:{
+                save: {
                     method: 'POST',
                     headers: requestConfig.headers
                 }
@@ -68,7 +69,6 @@
             if (method === 'GET') {
                 return urlResource.query();
             } else if (method === 'POST') {
-                urlResource.data = data;
                 return urlResource;
             } else {
                 return {};
@@ -84,18 +84,13 @@
             return executeResource(url, 'GET');
         }
 
-//        function httpPost(url, data) {
-//            return httpExecute(url, 'POST', data);
-//        }
-//
-//
-//        function httpGet(url) {
-//            return httpExecute(url, 'GET');
-//        }
+        function httpGet(url) {
+            return httpExecute(url, 'GET');
+        }
 
-        //        function httpPost(url, data) {
-        //            return httpExecute(url, 'POST', data);
-        //        }
+        function httpPost(url, data) {
+            return httpExecute(url, 'POST', data);
+        }
 
-//    }
+    }
 })();
