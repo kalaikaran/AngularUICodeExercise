@@ -11,7 +11,7 @@
         vm.activate = activate;
         vm.addActor = addActor;
         vm.navigate = navigate;
-        vm.actor = actor;
+        //vm.actor = actor;
         vm.actors = initialData;
 
         activate();

@@ -10,6 +10,7 @@
 
         vm.activate = activate;
         vm.navigate = navigate;
+        vm.homeCtrl = "HomeCtrl";
 
         activate();
 

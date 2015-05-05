@@ -34,8 +34,8 @@
             return getResource('/author');
         }
 
-        function addActorResource(league) {
-            return postResource('/author', league);
+        function addActorResource(actor) {
+            return postResource('/author', actor);
         }
 
         function httpExecute(requestUrl, method, data) {

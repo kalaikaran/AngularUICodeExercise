@@ -4,7 +4,9 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var plugins = require('gulp-load-plugins')();
 var karma = require('gulp-karma');
+//var karma = require('karma').server;
 var jasmine = require('gulp-jasmine');
+var cover = require('gulp-coverage');
 
 
 var paths = {
@@ -36,6 +38,20 @@ gulp.task('test', function () {
             // Make sure failed tests cause gulp to exit non-zero
             throw err;
         });
+});
+
+
+
+gulp.task('coverage', function () {
+    return gulp.src('src/test/specs/homeSpec.js')
+        .pipe(cover.instrument({
+            pattern: ['**/test*'],
+            debugDirectory: 'debug'
+        }))
+        .pipe(jasmine())
+        .pipe(cover.gather())
+        .pipe(cover.format())
+        .pipe(gulp.dest('reports'));
 });
 //gulp.task('test', function (done) {
 //    karma.start({
